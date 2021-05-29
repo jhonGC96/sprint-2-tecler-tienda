@@ -1,0 +1,52 @@
+<%- include ("cabeceras/cabecera.listarproducto.ejs") %>
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-7">
+                <table class="table table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <td>Descripcion</td>
+                            <td>Precio</td>
+                            <td>Categoria</td>
+                            <td>Imagen</td>
+                            <td>Inventario</td>
+                            <td>Accion</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% if (data) { %>
+                            <% for(var i=0; i < data.length; i++) { %>
+                                <tr>
+                                    <td>
+                                        <%= data[i].descripcion_prod %>
+                                    </td>
+                                    <td>
+                                        $<%= data[i].precio_prod %>
+                                    </td>
+                                    <td>
+                                        <%= data[i].id_categoria %>
+                                    </td>
+                                    <td>
+                                        <img src="<%= data[i].imagen_prod %>" width="166" alt="800">
+                                    </td>
+                                    <td>
+                                        <%= data[i].cantidad_inventario_prod %>
+                                    </td>
+                                    <td>
+                                        <a href="/updateProducto/<%=data[i].id_producto%>"
+                                            class="btn btn-info">Actualizar</a>
+                                        <a href="/bajaProducto/<%=data[i].id_producto%>" class="btn btn-danger">
+                                            Eliminar</a>
+                                    </td>
+                                </tr>
+                                <% } %>
+                                    <% } %>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    </body>
+
+    </html>
