@@ -1,7 +1,6 @@
 {
   "name": "mvc",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -16,5 +15,15 @@
     "nodemon": "^2.0.7",
     "sequelize": "^6.6.2",
     "tedious": "^11.0.8"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jhonGC96/sprint-2-tecler-tienda.git"
+  },
+  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/jhonGC96/sprint-2-tecler-tienda/issues"
+  },
+  "homepage": "https://github.com/jhonGC96/sprint-2-tecler-tienda#readme",
+  "description": ""
 }

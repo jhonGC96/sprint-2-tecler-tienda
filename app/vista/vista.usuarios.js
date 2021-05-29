@@ -3,7 +3,7 @@ const controladorUsuario = require('../controlador/controlador.usuarios')
 module.exports = async (app) => {
     app.get('/', async (req, res) => {
         try {
-            //res.render('index')
+            res.send('ok')
         } catch (e) {
             console.log(e);
             res.status(400).json('Error al encontrar')
