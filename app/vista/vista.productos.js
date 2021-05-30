@@ -36,12 +36,23 @@ module.exports = async (app) => {
     })
 
     app.get('/updateProducto/:id_producto', async (req, res) =>{
-        let update = req.params.id_usuario
+        let update = req.params.id_producto
         try {
             let resultado = await controladorProducto.updateProductos(update)
             res.render('editarproducto', {
-                data:resultado
+                data:resultado[0]
             })
+        } catch (e) {
+            console.log(e);
+        }
+    })
+
+    app.post('/updateProducto/:id_producto', async (req, res) =>{
+        let id = req.params.id_producto
+        let update = req.body
+        try {
+            await controladorProducto.saveUpdateProducto(update, id)
+            res.redirect('/listarproductos')
         } catch (e) {
             console.log(e);
         }

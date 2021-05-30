@@ -31,14 +31,14 @@
                                         <%= data[i].email_usuario %>
                                     </td>
                                     <td>
-                                        <%=  %>
+                                        <%= data[i].username_usuario %>
                                     </td>
                                     <td>
                                         <%= data[i].tipo_usuario %>
                                     </td>
                                     <td>
-                                        <a href="/updateProducto/<%=data[i].id_usuario%>" class="btn btn-info">Actualizar</a>
-                                        <a href="/bajaProducto/<%=data[i].id_usuario%>" class="btn btn-danger"> Eliminar</a>
+                                        <a href="/updateUsuario/<%=data[i].id_usuario%>" class="btn btn-info">Editar</a>
+                                        <a href="/bajaUsuario/<%=data[i].id_usuario%>" class="btn btn-danger"> Eliminar</a>
                                     </td>
                                 </tr>
                                 <% } %>

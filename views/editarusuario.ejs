@@ -1,28 +1,27 @@
 <%- include ("cabeceras/cabecera.editar.ejs") %>
-
     <div class="container mt-5">
         <div class="row">
             <div class="col-md-5 offset-md-3 card">
                 <div class="card-body">
                     <form action="/updateUsuario/<%= data.id_usuario %>" method="POST">
                         <div class="form-group">
-                            <input type="text" name="nombres" value="<%= data.nombres_usuario%>" placeholder="Name"
+                            <input type="text" name="nombres_usuario" value="<%= data.nombres_usuario%>" 
                                 class="form-control" autofocus>
                         </div>
                         <div class="form-group">
-                            <input type="text" name="apellidos" value="<%= data.apellidos_usuario%>" placeholder="Address"
+                            <input type="text" name="apellidos_usuario" value="<%= data.apellidos_usuario%>" 
                                 class="form-control">
                         </div>
                         <div class="form-group">
-                            <input type="text" name="correo" value="<%= data.email_usuarios%>" placeholder="Phone"
+                            <input type="text" name="email_usuario" value="<%= data.email_usuario%>" 
                                 class="form-control">
                         </div>
                         <div class="form-group">
-                            <input type="text" name="usuario" value="<%= data.username_usuario%>" placeholder="Phone"
+                            <input type="text" name="username_usuario" value="<%= data.username_usuario%>" 
                                 class="form-control">
                         </div>
                         <div class="form-group">
-                            <input type="text" name="tipo de usuario" value="<%= data.tipo_usuario%>" placeholder="Phone"
+                            <input type="text" name="tipo_usuario" value="<%= data.tipo_usuario%>" 
                                 class="form-control">
                         </div>
 
@@ -34,7 +33,5 @@
             </div>
         </div>
     </div>
-
     </body>
-
     </html>
