@@ -16,11 +16,3 @@ function validarMail (data) {
     }
 }
 
-function validarMail (data) {
-    console.log(data)
-    if( (/\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)/.test(data)) ) {
-        throw new Error ('Alguno de los valors ingresados no es correcto')
-    }else {
-        return 'ok'
-    }
-}
