@@ -13,5 +13,12 @@ module.exports = {
         pass_usuario : Joi.string().regex(/^[a-zA-Z0-9]{10,20}$/).min(10).required(),
         tipo_usuario : Joi.string(),
     }).with('username_usuario','pass_usuario'),
+
+    Producto : Joi.object().keys({
+        descricion_prod :Joi.string().min(5).max(50).required(),
+        precio_prod : Joi.int().required(),
+        imagen_prod : Joi.string(),
+        cantidad_inventario_prod : Joi.int(),
+    })
 }
 

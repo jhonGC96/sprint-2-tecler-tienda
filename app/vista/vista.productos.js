@@ -1,5 +1,5 @@
 const controladorProducto = require('../controlador/controlador.productos')
-
+const verificacion = require ('../controlador/controlador')
 module.exports = async (app) => {
 
     app.get('/listarproductos', async (req, res) => {
@@ -24,7 +24,7 @@ module.exports = async (app) => {
         }
     })
 
-    app.post('/saveproducto', async (req, res) => {
+    app.post('/saveproducto', verificacion.checkProduct, async (req, res) => {
         let alta = req.body
         console.log(alta);
         try {

@@ -2,11 +2,21 @@
 //const rateLimit = require('express-rate-limit'); 
 const Joi = require('joi')
 const {Login} = require('./verificacion')
-
+const {Product} = require('./verificacion')
 //Función para chequear los usuarios
 module.exports.checkUser = async(req, res, next) =>{
     try {
         await Joi.attempt(req.body, Login, 'Los datos son incorrectos, intentalo de nuevo')
+        return next()
+    } catch (e) {
+        console.log(e);
+        res.status(500).json({error : e.message})
+    }
+}
+
+module.exports.checkProduct = async(req, res, next) =>{
+    try {
+        await Joi.attempt(req.body, Product, 'Los datos son incorrectos, intentalo de nuevo')
         return next()
     } catch (e) {
         console.log(e);
