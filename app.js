@@ -4,6 +4,8 @@ require ('dotenv').config()
 const sequelize = require ('./db/db.conexion')
 const vistaUsuarios = require ('./app/vista/vista.usuarios')
 const vistaProductos = require ('./app/vista/vista.productos')
+const vistaLogin = require ('./app/vista/vista.login')
+
 
 //middlewares
 app.use(express.json())
@@ -41,3 +43,4 @@ app.use((err, req, res, next)=>{
 
 vistaUsuarios(app)
 vistaProductos(app)
+vistaLogin(app)

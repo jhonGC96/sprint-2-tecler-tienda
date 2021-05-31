@@ -1,14 +1,7 @@
 const controladorUsuario = require('../controlador/controlador.usuarios')
 
 module.exports = async (app) => {
-    app.get('/', async (req, res) => {
-        try {
-            //res.render('index')
-        } catch (e) {
-            console.log(e);
-            res.status(400).json('Error al encontrar')
-        } 
-    })
+    
 
     app.get('/listarusuarios', async (req, res) => {
         try {
@@ -16,8 +9,6 @@ module.exports = async (app) => {
             res.render("listarusuario", {
                 data: resultado[0]
             })
-
-
         } catch (e) {
             console.log(e);
         }
