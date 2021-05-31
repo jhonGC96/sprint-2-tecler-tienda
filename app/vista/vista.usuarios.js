@@ -1,6 +1,7 @@
 const controladorUsuario = require('../controlador/controlador.usuarios')
+const verificacion = require('../controlador/controlador')
 
-module.exports = async (app) => {
+module.exports = (app) => {
     app.get('/', async (req, res) => {
         try {
             res.send('ok')
@@ -25,15 +26,17 @@ module.exports = async (app) => {
 
     //rutas para crear usuario y guardarlo
     app.get('/createuser', async (req, res) => {
+
         try {
-            res.render('crearusuarios')
+            await res.render('crearusuarios')
+
         } catch (err) {
             console.log(err)
             res.estatus(400).json('Error al dirigirse a la pagina CREAR')
         }
     })
 
-    app.post('/saveuser', async (req, res) => {
+    app.post('/saveuser',verificacion.checkUser,  async (req, res) => {
         let alta = req.body
         try {
             await controladorUsuario.altaUsuarios(alta)
