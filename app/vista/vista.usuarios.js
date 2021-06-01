@@ -1,23 +1,13 @@
 const controladorUsuario = require('../controlador/controlador.usuarios')
 
 module.exports = async (app) => {
-    app.get('/', async (req, res) => {
-        try {
-            res.send('ok')
-        } catch (e) {
-            console.log(e);
-            res.status(400).json('Error al encontrar')
-        }
-    })
-
+    
     app.get('/listarusuarios', async (req, res) => {
         try {
             let resultado = await controladorUsuario.listarUsuarios()
             res.render("listarusuario", {
                 data: resultado[0]
             })
-
-
         } catch (e) {
             console.log(e);
         }
@@ -35,6 +25,7 @@ module.exports = async (app) => {
 
     app.post('/saveuser', async (req, res) => {
         let alta = req.body
+        console.log(alta);
         try {
             await controladorUsuario.altaUsuarios(alta)
             res.redirect('/listarusuarios')
@@ -47,9 +38,20 @@ module.exports = async (app) => {
         let update = req.params.id_usuario
         try {
             let resultado = await controladorUsuario.updateUsuario(update)
-            res.render('editarusuarios', {
-                data:resultado
-            })
+            res.render('editarusuario', {
+                data:resultado[0]
+            }) 
+        } catch (e) {
+            console.log(e);
+        }
+    }) 
+
+    app.post('/updateUsuario/:id_usuario', async (req, res) =>{
+        let id = req.params.id_usuario
+        let update = req.body
+        try {
+            await controladorUsuario.saveUpdateUsuario(update, id)
+            res.redirect('/listarusuarios')
         } catch (e) {
             console.log(e);
         }
@@ -58,7 +60,7 @@ module.exports = async (app) => {
     app.get('/bajaUsuario/:id_usuario', async (req, res) => {
         const baja = req.params.id_usuario
         try {
-            await controladorUsuario.bajaUsuario(baja)
+            let resultado = await controladorUsuario.bajaUsuario(baja)
             res.redirect('/listarusuarios')
         } catch (err) {
             console.log(err);

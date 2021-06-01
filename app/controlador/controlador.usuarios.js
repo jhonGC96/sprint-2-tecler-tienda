@@ -8,7 +8,7 @@ module.exports.listarUsuarios = async ()=>{
         console.log(e);
         throw new Error ('Error al listar')
     }
-}
+} 
 
 module.exports.altaUsuarios = async (data)=>{
     try {
@@ -21,9 +21,18 @@ module.exports.altaUsuarios = async (data)=>{
 }
 
 module.exports.updateUsuario = async (data) => {
-    console.log(data);
     try {
         let resultado = await usuarios.modificar(data)
+        return resultado
+    }catch (err){
+        throw new Error ('No se pudo actualizar el producto seleccionado')
+    }
+}
+
+module.exports.saveUpdateUsuario = async (data, id) => {
+    try {
+        await usuarios.modificarSave(data, id)
+        return 'se actualizo correcto'
     }catch (err){
         throw new Error ('No se pudo actualizar el producto seleccionado')
     }

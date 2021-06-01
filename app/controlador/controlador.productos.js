@@ -21,9 +21,18 @@ module.exports.altaProductos = async (data)=>{
 } 
 
 module.exports.updateProductos = async (data) => {
-    console.log(data);
     try {
         let resultado = await usuarios.modificar(data)
+        return resultado;
+    }catch (err){
+        throw new Error ('No se pudo actualizar el producto seleccionado')
+    }
+}
+
+module.exports.saveUpdateProducto = async (data, id) => {
+    try {
+        await usuarios.modificarSave(data, id)
+        return 'se actualizo correcto'
     }catch (err){
         throw new Error ('No se pudo actualizar el producto seleccionado')
     }
