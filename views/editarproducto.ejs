@@ -1,4 +1,4 @@
-<%- include ("cabeceras/cabecera.editarproducto.ejs") %>
+<%- include ("cabeceras/cabecera.principal.ejs") %>
     <div class="container mt-5">
         <div class="row">
             <div class="col-md-5 offset-md-3 card">
@@ -13,8 +13,14 @@
                                 class="form-control">
                         </div>
                         <div class="form-group">
-                            <input type="text" name="id_categoria" value="<%= data.id_categoria%>" 
-                                class="form-control">
+                            <select class="form-control" name="id_categoria" id="exampleFormControlSelect1" placeholder="Categoria">
+                                <option>seleccionar categoria</option>
+                                <option value=1>Consolas</option>
+                                <option value=2>celulares</option>
+                                <option value=3>camaras de video</option>
+                                <option value=4>laptops</option>
+                                <option value=5>audifonos</option>
+                            </select>
                         </div>
                         <div class="form-group">
                             <input type="text" name="imagen_prod" value="<%= data.imagen_prod%>" 
