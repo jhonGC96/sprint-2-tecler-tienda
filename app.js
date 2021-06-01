@@ -1,3 +1,4 @@
+//Importación de recursos
 var express = require ('express')
 var app = express ()
 require ('dotenv').config()
@@ -14,6 +15,8 @@ app.use(express.static(__dirname + '/public'))
 app.set('view engine','ejs')
 app.set('views',__dirname+'/views')
 
+
+//Inicio de server
 async function  inicioServer(){
     try {
         await sequelize.authenticate()
@@ -25,9 +28,9 @@ async function  inicioServer(){
         console.error('Conexión fallida: ',e);
     }
 }
-
 inicioServer()
 
+//Errores dentro el servidor
 app.use((err, req, res, next)=>{
     if (err){
         console.log(err);
@@ -39,5 +42,11 @@ app.use((err, req, res, next)=>{
     next()
 })
 
+exports.addTest = function (value){
+    var result = value + "tested"
+    return result
+}
+
+//Uso de los elementos que se requiren
 vistaUsuarios(app)
 vistaProductos(app)

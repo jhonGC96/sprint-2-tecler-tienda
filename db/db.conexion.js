@@ -1,5 +1,7 @@
+//Importación de modulo sequelize
 const Sequelize = require('sequelize')
 
+//Creación de objeto y realizamos la conexión
 const sequelize = new Sequelize ('Tienda_01', null, null, {
     dialect : 'mssql', 
     server : process.env.DB_HOST, 
