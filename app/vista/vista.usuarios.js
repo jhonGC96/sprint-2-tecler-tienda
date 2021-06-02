@@ -1,10 +1,15 @@
 //Importación de modulos dados por el controlador
 const controladorUsuario = require('../controlador/controlador.usuarios')
 const verificacion = require('../controlador/controlador')
+<<<<<<< HEAD
 
 //Exportación de módulos
 module.exports = (app) => {
 
+=======
+
+module.exports = (app) => {
+>>>>>>> Samuel
     app.get('/', async (req, res) => {
         try {
             res.send('ok')
@@ -31,7 +36,11 @@ module.exports = (app) => {
 
     //rutas para crear usuario y guardarlo
     app.get('/createuser', async (req, res) => {
+<<<<<<< HEAD
         //Control de errores
+=======
+
+>>>>>>> Samuel
         try {
             await res.render('crearusuarios')
 
@@ -41,9 +50,13 @@ module.exports = (app) => {
         }
     })
 
+<<<<<<< HEAD
     //Método POST para guardar usuario
     app.post('/saveuser',verificacion.checkUser,  async (req, res) => {
         //creacion de objeto
+=======
+    app.post('/saveuser',verificacion.checkUser,  async (req, res) => {
+>>>>>>> Samuel
         let alta = req.body
         //Control de errores
         try {

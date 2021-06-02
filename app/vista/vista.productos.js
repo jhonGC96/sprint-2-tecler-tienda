@@ -1,8 +1,11 @@
 //Importacion de los modulos que se encuentran en el controlador
 const controladorProducto = require('../controlador/controlador.productos')
 const verificacion = require ('../controlador/controlador')
+<<<<<<< HEAD
 
 //Exportacion de modulos
+=======
+>>>>>>> Samuel
 module.exports = async (app) => {
 
     //Método get para listar productos
@@ -29,7 +32,10 @@ module.exports = async (app) => {
         }
     })
 
+<<<<<<< HEAD
     //Método POST para agregar productos referenciado por el createprodudcot
+=======
+>>>>>>> Samuel
     app.post('/saveproducto', verificacion.checkProduct, async (req, res) => {
         let alta = req.body
         console.log(alta);
