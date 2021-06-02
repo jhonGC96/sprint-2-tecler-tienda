@@ -33,7 +33,7 @@ module.exports = async (app) => {
             console.log(e);
         }
     })
-
+}
     //rutas para crear usuario y guardarlo
     app.get('/createuser', async (req, res) => {
 
@@ -48,8 +48,6 @@ module.exports = async (app) => {
     })
 
     //Método POST para guardar usuario
-    app.post('/saveuser',verificacion.checkUser,  async (req, res) => {
-        //creacion de objeto
 
     app.post('/saveuser',verificacion.checkUser,  async (req, res) => {
 
@@ -112,5 +110,5 @@ module.exports = async (app) => {
         }
     })
 
-    
+}
 }
