@@ -55,13 +55,8 @@ module.exports = class Datos {
         }
     }
 
-<<<<<<< HEAD
-    //Función para modificar
-    async modificar (data){
-        //creación de objeto
-=======
     static async modificar (data){
->>>>>>> 98ecfab9ea8f0de2e4b185ead3156b93775a1f78
+
         let usuarioUpdate = [
             data
         ]

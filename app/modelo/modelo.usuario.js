@@ -8,12 +8,7 @@ module.exports = class Datos {
     constructor (datos) {
         this.datos = datos
     }
-<<<<<<< HEAD
 
-    //funcion para listar
-=======
- 
->>>>>>> 98ecfab9ea8f0de2e4b185ead3156b93775a1f78
     static async listar (){
         let resultado = await sequelize.query('SELECT * FROM usuarios')
         return resultado
@@ -61,14 +56,11 @@ module.exports = class Datos {
         }
     }
 
-<<<<<<< HEAD
 
-    //Funcion para modificar
-    async modificar (data){
-        //creación de objeto
-=======
+
+
     static async modificar (data){
->>>>>>> 98ecfab9ea8f0de2e4b185ead3156b93775a1f78
+
         let usuarioUpdate = [
             data
         ]
