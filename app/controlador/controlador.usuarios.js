@@ -12,7 +12,7 @@ module.exports.listarUsuarios = async ()=>{
         console.log(e);
         throw new Error ('Error al listar')
     }
-}
+} 
 
 //Función para alta de usuarios
 module.exports.altaUsuarios = async (data)=>{
@@ -29,11 +29,19 @@ module.exports.altaUsuarios = async (data)=>{
 
 //Función para actualizar usuarios
 module.exports.updateUsuario = async (data) => {
-    console.log(data);
-    //Control de errores
     try {
         //Uso de objetos
         let resultado = await usuarios.modificar(data)
+        return resultado
+    }catch (err){
+        throw new Error ('No se pudo actualizar el producto seleccionado')
+    }
+}
+
+module.exports.saveUpdateUsuario = async (data, id) => {
+    try {
+        await usuarios.modificarSave(data, id)
+        return 'se actualizo correcto'
     }catch (err){
         throw new Error ('No se pudo actualizar el producto seleccionado')
     }

@@ -3,10 +3,6 @@ const Joi = require ('joi')
 
 //Exportamos nuestro schema
 
-<<<<<<< HEAD
-//Exportación de los módulos 
-=======
->>>>>>> Samuel
 module.exports = {
     //uso de objetos
     Login : Joi.object().keys({
@@ -17,7 +13,6 @@ module.exports = {
         pass_usuario : Joi.string().regex(/^[a-zA-Z0-9]{10,20}$/).min(10).required(),
         tipo_usuario : Joi.string(),
     }).with('username_usuario','pass_usuario'),
-<<<<<<< HEAD
     //Uso de objetos
     Producto : Joi.object().keys({
         descricion_prod :Joi.string().min(5).max(50).required(),
@@ -25,14 +20,6 @@ module.exports = {
         imagen_prod : Joi.string(),
         cantidad_inventario_prod : Joi.number(),
     }),
-=======
 
-    Producto : Joi.object().keys({
-        descricion_prod :Joi.string().min(5).max(50).required(),
-        precio_prod : Joi.int().required(),
-        imagen_prod : Joi.string(),
-        cantidad_inventario_prod : Joi.int(),
-    })
->>>>>>> Samuel
 }
 

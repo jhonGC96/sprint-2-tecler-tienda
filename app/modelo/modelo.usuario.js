@@ -8,8 +8,12 @@ module.exports = class Datos {
     constructor (datos) {
         this.datos = datos
     }
+<<<<<<< HEAD
 
     //funcion para listar
+=======
+ 
+>>>>>>> 98ecfab9ea8f0de2e4b185ead3156b93775a1f78
     static async listar (){
         let resultado = await sequelize.query('SELECT * FROM usuarios')
         return resultado
@@ -57,10 +61,14 @@ module.exports = class Datos {
         }
     }
 
+<<<<<<< HEAD
 
     //Funcion para modificar
     async modificar (data){
         //creación de objeto
+=======
+    static async modificar (data){
+>>>>>>> 98ecfab9ea8f0de2e4b185ead3156b93775a1f78
         let usuarioUpdate = [
             data
         ]
@@ -71,7 +79,25 @@ module.exports = class Datos {
             {replacements : usuarioUpdate, type : sequelize.QueryTypes.SELECT})
             return resultado;
         } catch (error) {
-            
+            throw new Error ('Ocurrio un error')
         }
     }
-}
+
+    static async modificarSave (data, id){
+        let usuarioUpdate = [
+            data.nombres_usuario,
+            data.apellidos_usuario,
+            data.email_usuario,
+            data.username_usuario,
+            data.tipo_usuario,
+            id
+        ]
+        try {
+            let resultado = await sequelize.query(`UPDATE usuarios SET nombres_usuario= ?, apellidos_usuario= ?, email_usuario= ?, username_usuario= ?, tipo_usuario= ? WHERE id_usuario= ? `,
+            {replacements : usuarioUpdate, type : sequelize.QueryTypes.SELECT})
+            return resultado;
+        } catch (error) {
+        }
+    }
+ 
+} 

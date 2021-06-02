@@ -1,15 +1,14 @@
 //Importación de modulos dados por el controlador
 const controladorUsuario = require('../controlador/controlador.usuarios')
 const verificacion = require('../controlador/controlador')
-<<<<<<< HEAD
 
 //Exportación de módulos
 module.exports = (app) => {
 
-=======
+
 
 module.exports = (app) => {
->>>>>>> Samuel
+
     app.get('/', async (req, res) => {
         try {
             res.send('ok')
@@ -20,6 +19,9 @@ module.exports = (app) => {
     })
 
     //Método get para listar los usuarios
+
+module.exports = async (app) => {
+ 
     app.get('/listarusuarios', async (req, res) => {
         //Control de errores
         try {
@@ -27,8 +29,6 @@ module.exports = (app) => {
             res.render("listarusuario", {
                 data: resultado[0]
             })
-
-
         } catch (e) {
             console.log(e);
         }
@@ -36,11 +36,8 @@ module.exports = (app) => {
 
     //rutas para crear usuario y guardarlo
     app.get('/createuser', async (req, res) => {
-<<<<<<< HEAD
-        //Control de errores
-=======
 
->>>>>>> Samuel
+
         try {
             await res.render('crearusuarios')
 
@@ -50,15 +47,18 @@ module.exports = (app) => {
         }
     })
 
-<<<<<<< HEAD
     //Método POST para guardar usuario
     app.post('/saveuser',verificacion.checkUser,  async (req, res) => {
         //creacion de objeto
-=======
+
     app.post('/saveuser',verificacion.checkUser,  async (req, res) => {
->>>>>>> Samuel
+
         let alta = req.body
+
         //Control de errores
+
+        console.log(alta);
+
         try {
              //Uso de objetos
             await controladorUsuario.altaUsuarios(alta)
@@ -76,9 +76,20 @@ module.exports = (app) => {
         try {
             
             let resultado = await controladorUsuario.updateUsuario(update)
-            res.render('editarusuarios', {
-                data:resultado
-            })
+            res.render('editarusuario', {
+                data:resultado[0]
+            }) 
+        } catch (e) {
+            console.log(e);
+        }
+    }) 
+
+    app.post('/updateUsuario/:id_usuario', async (req, res) =>{
+        let id = req.params.id_usuario
+        let update = req.body
+        try {
+            await controladorUsuario.saveUpdateUsuario(update, id)
+            res.redirect('/listarusuarios')
         } catch (e) {
             console.log(e);
         }
@@ -90,8 +101,11 @@ module.exports = (app) => {
         const baja = req.params.id_usuario
         //Control de errores
         try {
+
             //Uso de objetos
             await controladorUsuario.bajaUsuario(baja)
+            let resultado = await controladorUsuario.bajaUsuario(baja)
+
             res.redirect('/listarusuarios')
         } catch (err) {
             console.log(err);

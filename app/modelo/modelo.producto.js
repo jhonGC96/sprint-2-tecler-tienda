@@ -55,9 +55,13 @@ module.exports = class Datos {
         }
     }
 
+<<<<<<< HEAD
     //Función para modificar
     async modificar (data){
         //creación de objeto
+=======
+    static async modificar (data){
+>>>>>>> 98ecfab9ea8f0de2e4b185ead3156b93775a1f78
         let usuarioUpdate = [
             data
         ]
@@ -68,7 +72,27 @@ module.exports = class Datos {
             {replacements : usuarioUpdate, type : sequelize.QueryTypes.SELECT})
             return resultado;
         } catch (error) {
-            
+            throw new Error ('Ocurrio un error')
         }
     }
+
+    static async modificarSave (data, id){
+        let usuarioUpdate = [
+            data.descripcion_prod,
+            data.precio_prod,
+            data.id_categoria,
+            data.imagen_prod,
+            data.cantidad_inventario_prod,
+            id
+        ]
+        try {
+            let resultado = await sequelize.query(`UPDATE productos SET descripcion_prod= ?, precio_prod= ?, id_categoria= ?, imagen_prod= ?, cantidad_inventario_prod= ? WHERE id_producto= ? `,
+            {replacements : usuarioUpdate, type : sequelize.QueryTypes.SELECT})
+            return resultado;
+        } catch (error) {
+            throw new Error ('Un campo esta incorrecto, intente de nuevo')
+
+        }
+    }
+
 }
