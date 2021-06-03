@@ -4,7 +4,7 @@ const Joi = require('joi')
 
 //Importacion de nuestras verificaciones
 const {Login} = require('./verificacion')
-const {Product} = require('./verificacion')
+const {Producto} = require('./verificacion')
 
 
 module.exports.checkUser = async(req, res, next) =>{
@@ -24,7 +24,7 @@ module.exports.checkUser = async(req, res, next) =>{
 module.exports.checkProduct = async(req, res, next) =>{
     try {
 
-        await Joi.attempt(req.body, Product, 'Los datos son incorrectos, intentalo de nuevo')
+        await Joi.attempt(req.body, Producto, 'Los datos son incorrectos, intentalo de nuevo')
         return next()
     } catch (e) {
         console.log(e);
