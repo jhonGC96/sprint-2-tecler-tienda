@@ -7,20 +7,7 @@ module.exports = (app) => {
 
 
 
-module.exports = (app) => {
 
-    app.get('/', async (req, res) => {
-        try {
-            res.send('ok')
-        } catch (e) {
-            console.log(e);
-            res.status(400).json('Error al encontrar')
-        }
-    })
-
-    //Método get para listar los usuarios
-
-module.exports = async (app) => {
  
     app.get('/listarusuarios', async (req, res) => {
         //Control de errores
@@ -33,7 +20,7 @@ module.exports = async (app) => {
             console.log(e);
         }
     })
-}
+
     //rutas para crear usuario y guardarlo
     app.get('/createuser', async (req, res) => {
 
@@ -110,5 +97,4 @@ module.exports = async (app) => {
         }
     })
 
-}
 }
